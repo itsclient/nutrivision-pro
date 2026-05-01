@@ -1,17 +1,31 @@
 import { elements, currentToken } from './config.js';
 
 export function showDashboard() {
-    elements.loginScreen.style.display = 'none';
-    elements.loginScreen.classList.remove('active');
-    elements.dashboardScreen.style.display = 'flex';
-    elements.dashboardScreen.classList.add('active');
+    // Hide login screen
+    elements.loginScreen.classList.add('d-none');
+    elements.loginScreen.classList.remove('d-flex', 'active');
+    
+    // Show dashboard screen
+    elements.dashboardScreen.classList.remove('d-none');
+    elements.dashboardScreen.classList.add('d-flex', 'active');
+    
+    // Force direct style as backup
+    elements.loginScreen.style.setProperty('display', 'none', 'important');
+    elements.dashboardScreen.style.setProperty('display', 'flex', 'important');
 }
 
 export function showLogin() {
-    elements.dashboardScreen.style.display = 'none';
-    elements.dashboardScreen.classList.remove('active');
-    elements.loginScreen.style.display = 'flex';
-    elements.loginScreen.classList.add('active');
+    // Hide dashboard screen
+    elements.dashboardScreen.classList.add('d-none');
+    elements.dashboardScreen.classList.remove('d-flex', 'active');
+    
+    // Show login screen
+    elements.loginScreen.classList.remove('d-none');
+    elements.loginScreen.classList.add('d-flex', 'active');
+    
+    // Force direct style as backup
+    elements.dashboardScreen.style.setProperty('display', 'none', 'important');
+    elements.loginScreen.style.setProperty('display', 'flex', 'important');
 }
 
 export function initNavigation() {

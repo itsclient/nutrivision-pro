@@ -40,7 +40,6 @@ body {
 
 /* ===== LOGIN SCREEN - FOOD THEME ===== */
 #login-screen {
-    display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -535,13 +534,10 @@ body {
 
 /* ===== DASHBOARD LAYOUT ===== */
 #dashboard-screen {
-    display: none;
     min-height: 100vh;
 }
 
-#dashboard-screen.active {
-    display: flex !important;
-}
+/* Bootstrap handles display via d-none/d-flex classes */
 
 .sidebar {
     width: var(--sidebar-width);
@@ -931,12 +927,8 @@ body {
 }
 
 /* ===== SCREEN TRANSITIONS ===== */
-.screen {
-    display: none;
-}
-
+/* Bootstrap handles display via d-none/d-flex classes */
 .screen.active {
-    display: block;
     animation: slideIn 0.4s ease;
 }
 
