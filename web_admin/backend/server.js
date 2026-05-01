@@ -1666,7 +1666,8 @@ app.get('/', (req, res) => {
   res.redirect('/admin');
 });
 
-// Serve static files (MUST be at the end after all API routes)
+// Serve static files (Dual path serving for robustness)
+app.use('/admin', express.static(path.resolve(__dirname, '..', 'frontend')));
 app.use(express.static(path.resolve(__dirname, '..', 'frontend')));
 
 // Initialize database then start server
