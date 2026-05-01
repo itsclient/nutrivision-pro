@@ -1651,18 +1651,23 @@ app.post('/api/exports/schedules', async (req, res) => {
   }
 });
 
-// Serve static files (MUST be at the end after all API routes)
-app.use(express.static(path.join(__dirname, '..', 'frontend')));
-
 // Handle the /admin route explicitly
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'frontend', 'index.html'));
 });
 
 // Catch-all for admin sub-routes (SPA support)
 app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'frontend', 'index.html'));
 });
+
+// Redirect root to admin
+app.get('/', (req, res) => {
+  res.redirect('/admin');
+});
+
+// Serve static files (MUST be at the end after all API routes)
+app.use(express.static(path.resolve(__dirname, '..', 'frontend')));
 
 // Initialize database then start server
 db.initialize().then(() => {

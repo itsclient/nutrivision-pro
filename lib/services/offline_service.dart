@@ -60,7 +60,7 @@ class OfflineService {
   Future<bool> checkConnectivity() async {
     try {
       final response = await http.get(
-        Uri.parse('https://nutrivision-api-kqed.onrender.com/api/admin/stats'),
+        Uri.parse('https://nutrivision-pro-api.onrender.com/api/admin/stats'),
       ).timeout(const Duration(seconds: 5));
       _isOnline = response.statusCode == 200;
     } catch (e) {
@@ -80,7 +80,7 @@ class OfflineService {
         'data': jsonEncode(data),
         'timestamp': DateTime.now().millisecondsSinceEpoch,
         'retry_count': 0,
-      },
+      },sudo suspend web service nutrivision-api
     );
   }
 
