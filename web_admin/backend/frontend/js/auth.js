@@ -22,6 +22,9 @@ export function initAuth() {
         loginBtn.disabled = true;
 
         try {
+            // Disable button immediately to prevent multiple clicks
+            loginBtn.disabled = true;
+            
             const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -37,15 +40,13 @@ export function initAuth() {
                 }
 
                 // Success feedback
-                btnContent.innerHTML = '<i class="fas fa-check"></i> <span>Sweet Success!</span>';
+                btnContent.innerHTML = '<i class="fas fa-check"></i> <span>Success!</span>';
                 btnContent.style.color = '#4CAF50';
                 
-                // Brief delay before redirect
-                setTimeout(() => {
-                    setCurrentToken(data.user);
-                    showDashboard();
-                    loadAllData();
-                }, 500);
+                // Redirect IMMEDIATELY
+                setCurrentToken(data.user);
+                showDashboard();
+                loadAllData();
             } else {
                 // Error feedback
                 elements.loginError.textContent = data.error || 'Login failed';
