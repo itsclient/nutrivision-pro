@@ -554,6 +554,22 @@ body {
     left: 0;
     top: 0;
     z-index: 100;
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--primary) var(--darker);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--darker);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
 }
 
 .sidebar-header {
@@ -576,6 +592,16 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: var(--text);
+}
+
+.nav-section {
+    padding: 16px 20px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
 .nav-menu {
