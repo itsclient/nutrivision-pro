@@ -282,85 +282,118 @@
                     </div>
                 </div>
 
-                <!-- AI Chat Tab -->
-                <div id="ai-chat-tab" class="tab-content">
+                <!-- AI Scan Monitoring Tab -->
+                <div id="smart-camera-tab" class="tab-content">
                     <div class="feature-tab-container">
                         <div class="content-header">
-                            <h3><i class="fas fa-robot"></i> AI Conversation History</h3>
-                            <div class="header-actions">
-                                <button class="btn-control" onclick="window.nutrivision.loadAIChatMessages()">
-                                    <i class="fas fa-sync"></i> Refresh Logs
-                                </button>
-                            </div>
+                            <h3><i class="fas fa-camera"></i> AI Scan Monitoring</h3>
+                            <button class="btn-control" onclick="window.nutrivision.loadSmartCameraScans()">
+                                <i class="fas fa-sync"></i> Refresh Scans
+                            </button>
                         </div>
-                        
                         <div class="feature-stats-row">
                             <div class="feature-card">
-                                <div class="feature-icon-box"><i class="fas fa-comments"></i></div>
-                                <div class="feature-title">Total Interactions</div>
-                                <div class="feature-value" id="ai-total-messages">0</div>
-                                <div class="feature-progress"><div class="feature-progress-bar" style="width: 0%"></div></div>
+                                <div class="feature-icon-box" style="background: #2196F3;"><i class="fas fa-eye"></i></div>
+                                <div class="feature-title">AI Confidence Avg</div>
+                                <div class="feature-value" id="ai-avg-confidence">0%</div>
                             </div>
                             <div class="feature-card">
-                                <div class="feature-icon-box" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"><i class="fas fa-user-friends"></i></div>
-                                <div class="feature-title">Active Chatters</div>
-                                <div class="feature-value" id="ai-active-users">0</div>
+                                <div class="feature-icon-box" style="background: #9c27b0;"><i class="fas fa-microchip"></i></div>
+                                <div class="feature-title">Total AI Scans</div>
+                                <div class="feature-value" id="ai-total-scans">0</div>
                             </div>
                         </div>
-
-                        <div class="empty-state-card" id="ai-chat-empty">
-                            <div class="empty-icon"><i class="fas fa-comment-slash"></i></div>
-                            <h4>No AI Conversations Yet</h4>
-                            <p>When users start chatting with the AI Nutritionist in the app, their message history will appear here for monitoring and support.</p>
-                        </div>
-
-                        <div class="table-container" id="ai-chat-table-container" style="display: none;">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>User</th>
-                                        <th>Last Message</th>
-                                        <th>Sentiment</th>
-                                        <th>Timestamp</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="ai-chat-table-body"></tbody>
-                            </table>
+                        <div class="empty-state-card">
+                            <div class="empty-icon"><i class="fas fa-camera-retro"></i></div>
+                            <h4>AI Monitoring Empty</h4>
+                            <p>This section allows you to oversee every photo scanned by users. You can verify if the AI correctly identified the food or if it needs retraining.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Challenges Tab -->
-                <div id="challenges-tab" class="tab-content">
+                <!-- Safety Oversight Tab -->
+                <div id="allergy-scanner-tab" class="tab-content">
                     <div class="feature-tab-container">
                         <div class="content-header">
-                            <h3><i class="fas fa-trophy"></i> Manage Challenges</h3>
-                            <button class="btn-primary" onclick="window.nutrivision.showCreateChallengeModal()">
-                                <i class="fas fa-plus"></i> Create New Challenge
+                            <h3><i class="fas fa-shield-virus"></i> Safety Oversight</h3>
+                            <button class="btn-control" onclick="window.nutrivision.loadAllergyScans()">
+                                <i class="fas fa-sync"></i> Refresh Data
                             </button>
                         </div>
-
                         <div class="feature-stats-row">
                             <div class="feature-card">
-                                <div class="feature-icon-box"><i class="fas fa-flag"></i></div>
-                                <div class="feature-title">Active Challenges</div>
-                                <div class="feature-value" id="active-challenges-count">0</div>
+                                <div class="feature-icon-box" style="background: #f44336;"><i class="fas fa-exclamation-triangle"></i></div>
+                                <div class="feature-title">Unsafe Matches</div>
+                                <div class="feature-value" id="total-unsafe">0</div>
                             </div>
                             <div class="feature-card">
-                                <div class="feature-icon-box" style="background: #FF9800;"><i class="fas fa-users"></i></div>
-                                <div class="feature-title">Participants</div>
-                                <div class="feature-value" id="total-participants">0</div>
+                                <div class="feature-icon-box" style="background: #4caf50;"><i class="fas fa-check-circle"></i></div>
+                                <div class="feature-title">Safe Products</div>
+                                <div class="feature-value" id="total-safe">0</div>
                             </div>
                         </div>
-
                         <div class="empty-state-card">
-                            <div class="empty-icon"><i class="fas fa-trophy"></i></div>
-                            <h4>Start Your First Challenge</h4>
-                            <p>Engage your users by creating group challenges and tournaments. Click "Create New Challenge" to get started.</p>
-                            <button class="btn-primary" style="margin-top: 20px;" onclick="window.nutrivision.showCreateChallengeModal()">
-                                Setup First Challenge
+                            <div class="empty-icon"><i class="fas fa-user-shield"></i></div>
+                            <h4>Safety Logs are Clear</h4>
+                            <p>When users scan for allergies or dietary restrictions, the safety results will appear here. You can monitor high-risk products and user safety trends.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Goal Tracking Tab -->
+                <div id="goals-tab" class="tab-content">
+                    <div class="feature-tab-container">
+                        <div class="content-header">
+                            <h3><i class="fas fa-bullseye"></i> User Goal Tracking</h3>
+                            <button class="btn-control" onclick="window.nutrivision.loadGoals()">
+                                <i class="fas fa-sync"></i> Refresh Goals
                             </button>
+                        </div>
+                        <div class="feature-stats-row">
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: #ff9800;"><i class="fas fa-tasks"></i></div>
+                                <div class="feature-title">Goals Created</div>
+                                <div class="feature-value" id="total-goals-count">0</div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: #4caf50;"><i class="fas fa-trophy"></i></div>
+                                <div class="feature-title">Goal Completion</div>
+                                <div class="feature-value" id="goal-completion-rate">0%</div>
+                            </div>
+                        </div>
+                        <div class="empty-state-card">
+                            <div class="empty-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>No Active Goals Found</h4>
+                            <p>Track what your users are aiming for. Whether it's weight loss or muscle gain, you'll see their progress and consistency here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Award Achievements Tab -->
+                <div id="achievements-tab" class="tab-content">
+                    <div class="feature-tab-container">
+                        <div class="content-header">
+                            <h3><i class="fas fa-medal"></i> Award Achievements</h3>
+                            <button class="btn-primary" onclick="window.nutrivision.showAwardAchievementModal()">
+                                <i class="fas fa-award"></i> Manual Award
+                            </button>
+                        </div>
+                        <div class="feature-stats-row">
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: #FFD700;"><i class="fas fa-crown"></i></div>
+                                <div class="feature-title">Medals Awarded</div>
+                                <div class="feature-value" id="total-achievements-count">0</div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: #FF5722;"><i class="fas fa-fire"></i></div>
+                                <div class="feature-title">Active Streaks</div>
+                                <div class="feature-value" id="total-streaks">0</div>
+                            </div>
+                        </div>
+                        <div class="empty-state-card">
+                            <div class="empty-icon"><i class="fas fa-medal"></i></div>
+                            <h4>Reward System Standby</h4>
+                            <p>Acknowledge user loyalty! You can manually award badges or points to users from this panel once you have active users.</p>
                         </div>
                     </div>
                 </div>

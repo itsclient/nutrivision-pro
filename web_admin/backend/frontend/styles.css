@@ -546,7 +546,7 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     background: var(--darker);
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 107, 107, 0.1);
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -554,22 +554,22 @@ body {
     left: 0;
     top: 0;
     z-index: 100;
-    overflow-y: auto; /* Enable vertical scrolling */
-    scrollbar-width: thin; /* For Firefox */
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal shaking */
+    scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--darker);
+    backface-visibility: hidden; /* Fix scroll jitter */
+    -webkit-overflow-scrolling: touch;
 }
 
+/* Custom scrollbar for better stability */
 .sidebar::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-    background: var(--darker);
+    width: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
     background: var(--primary);
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 .sidebar-header {
