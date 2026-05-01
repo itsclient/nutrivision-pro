@@ -1,0 +1,71 @@
+name: nutrition_smart_calorie_meal_tracker
+description: A Flutter app for smart dessert scanning, calorie tracking, and meal analysis.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+  flutter: ">=3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  http: ^1.2.0
+  image_picker: ^1.1.2
+  camera: ^0.11.0
+  permission_handler: ^11.3.0
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  lottie: ^3.1.2
+  sqflite: ^2.3.0
+  path_provider: ^2.1.2
+  connectivity_plus: ^6.0.3
+  path: ^1.9.0
+  intl: ^0.19.0
+  fl_chart: ^0.68.0
+  crypto: ^3.0.3
+  shared_preferences: ^2.2.2
+  image: ^4.5.2
+  share_plus: ^10.0.0
+  
+  # New dependencies for enhanced features
+  provider: ^6.1.2
+  font_awesome_flutter: ^10.7.0
+  cached_network_image: ^3.3.1
+  mobile_scanner: ^4.0.1
+  google_ml_kit: ^0.18.0
+  tflite_flutter: ^0.10.4
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  encrypt: ^5.0.3
+  local_auth: ^2.3.0
+  health: ^10.3.0
+  google_sign_in: ^6.2.1
+  fitbit: ^0.2.0
+  flutter_local_notifications: ^17.2.2
+  haptic_feedback: ^0.4.0
+  flutter_secure_storage: ^9.2.2
+  uuid: ^4.4.2
+  url_launcher: ^6.3.0
+  webview_flutter: ^4.8.0
+  qr_code_scanner: ^1.0.1
+  googleapis_auth: ^1.1.1
+  oauth2: ^2.0.3
+dev_dependencies:
+  flutter_test:
+    sdk: "flutter"
+  flutter_lints: ^2.0.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/models/
+    - assets/models/food_recognition.tflite
+    - assets/models/food_labels.txt
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/app_logo.png"
+  adaptive_icon_background: "#FF6B6B"
+  adaptive_icon_foreground: "assets/logo/app_logo.png"
