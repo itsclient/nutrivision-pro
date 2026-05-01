@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nutrivision-pro-api
+    env: node
+    plan: free
+    rootDir: web_admin/backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 18.0.0
+      - key: DATABASE_URL
+        sync: false # You will need to paste your database URL in the Render dashboard
+    healthCheckPath: /api/admin/stats
