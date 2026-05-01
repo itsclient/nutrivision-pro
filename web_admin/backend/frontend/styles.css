@@ -55,6 +55,13 @@ body {
     right: 0;
     bottom: 0;
     overflow: hidden;
+    z-index: 10;
+    visibility: visible;
+}
+
+#login-screen.d-none {
+    visibility: hidden;
+    z-index: -1;
 }
 
 /* Food-themed Background */
@@ -535,6 +542,16 @@ body {
 /* ===== DASHBOARD LAYOUT ===== */
 #dashboard-screen {
     min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+    visibility: visible;
+    background: linear-gradient(135deg, #1A1125 0%, #2D1F3E 100%);
+}
+
+#dashboard-screen.d-none {
+    visibility: hidden;
+    z-index: -1;
 }
 
 /* Bootstrap handles display via d-none/d-flex classes */

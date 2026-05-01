@@ -1,6 +1,8 @@
 import { elements, currentToken } from './config.js';
 
 export function showDashboard() {
+    console.log('Showing dashboard...');
+    
     // Hide login screen
     elements.loginScreen.classList.add('d-none');
     elements.loginScreen.classList.remove('d-flex', 'active');
@@ -12,6 +14,9 @@ export function showDashboard() {
     // Force direct style as backup
     elements.loginScreen.style.setProperty('display', 'none', 'important');
     elements.dashboardScreen.style.setProperty('display', 'flex', 'important');
+    
+    console.log('Dashboard classes:', elements.dashboardScreen.className);
+    console.log('Login classes:', elements.loginScreen.className);
 }
 
 export function showLogin() {
