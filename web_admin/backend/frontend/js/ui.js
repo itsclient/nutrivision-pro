@@ -63,3 +63,13 @@ export function initNavigation() {
         });
     });
 }
+
+// Debug function - can be called from console
+export function debugScreenSwitch() {
+    console.log('Debug: Manually switching to dashboard');
+    console.log('Login screen element:', elements.loginScreen);
+    console.log('Dashboard screen element:', elements.dashboardScreen);
+    showDashboard();
+    console.log('After switch - Login display:', getComputedStyle(elements.loginScreen).display);
+    console.log('After switch - Dashboard display:', getComputedStyle(elements.dashboardScreen).display);
+}

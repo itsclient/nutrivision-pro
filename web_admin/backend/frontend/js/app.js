@@ -1,6 +1,6 @@
 // Main entry point for Admin Dashboard
 import { initAuth } from './auth.js';
-import { initNavigation, showLogin, showDashboard } from './ui.js';
+import { initNavigation, showLogin, showDashboard, debugScreenSwitch } from './ui.js';
 import { loadAllData } from './data.js';
 import { initUserSearch } from './users.js';
 import { initScanSearch } from './scans.js';
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Expose individual functions for onclick handlers
     window.refreshAlerts = refreshAlerts;
     window.refreshPerformance = refreshPerformance;
+    window.debugScreenSwitch = debugScreenSwitch;
     
     // Setup tab switching for new tabs
     setupTabSwitching();

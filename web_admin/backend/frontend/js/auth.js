@@ -34,6 +34,8 @@ export function initAuth() {
             const data = await response.json();
 
             if (data.success) {
+                console.log('Login successful, switching to dashboard...');
+                
                 // Save credentials if remember me is checked
                 if (window.saveCredentials) {
                     window.saveCredentials(email, password);
@@ -44,9 +46,16 @@ export function initAuth() {
                 btnContent.style.color = '#4CAF50';
                 
                 // Redirect IMMEDIATELY
-                setCurrentToken(data.user);
-                showDashboard();
-                loadAllData();
+                try {
+                    setCurrentToken(data.user);
+                    console.log('Token set, calling showDashboard...');
+                    showDashboard();
+                    console.log('Dashboard shown, calling loadAllData...');
+                    loadAllData();
+                    console.log('All data loaded successfully');
+                } catch (err) {
+                    console.error('Error during dashboard transition:', err);
+                }
             } else {
                 // Error feedback
                 elements.loginError.textContent = data.error || 'Login failed';
