@@ -154,29 +154,29 @@
                     <div class="nav-section">AI & Smart Features</div>
                     <a href="#" class="nav-item" data-tab="ai-chat">
                         <i class="fas fa-robot"></i>
-                        <span>AI Chat</span>
+                        <span>AI Conversation History</span>
                     </a>
                     <a href="#" class="nav-item" data-tab="smart-camera">
                         <i class="fas fa-camera"></i>
-                        <span>Smart Camera</span>
+                        <span>AI Scan Monitoring</span>
                     </a>
                     <a href="#" class="nav-item" data-tab="allergy-scanner">
                         <i class="fas fa-shield-virus"></i>
-                        <span>Allergy Scanner</span>
+                        <span>Safety Oversight</span>
                     </a>
 
-                    <div class="nav-section">Engagement</div>
+                    <div class="nav-section">User Engagement</div>
                     <a href="#" class="nav-item" data-tab="challenges">
                         <i class="fas fa-trophy"></i>
-                        <span>Challenges</span>
+                        <span>Manage Challenges</span>
                     </a>
                     <a href="#" class="nav-item" data-tab="goals">
                         <i class="fas fa-bullseye"></i>
-                        <span>Goals</span>
+                        <span>User Goal Tracking</span>
                     </a>
                     <a href="#" class="nav-item" data-tab="achievements">
                         <i class="fas fa-medal"></i>
-                        <span>Achievements</span>
+                        <span>Award Achievements</span>
                     </a>
 
                     <div class="nav-section">Advanced Tools</div>
@@ -282,30 +282,86 @@
                     </div>
                 </div>
 
-                <!-- Users Tab -->
-                <div id="users-tab" class="tab-content">
-                    <div class="content-header">
-                        <h3><i class="fas fa-users"></i> All Users</h3>
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" id="user-search" placeholder="Search users...">
+                <!-- AI Chat Tab -->
+                <div id="ai-chat-tab" class="tab-content">
+                    <div class="feature-tab-container">
+                        <div class="content-header">
+                            <h3><i class="fas fa-robot"></i> AI Conversation History</h3>
+                            <div class="header-actions">
+                                <button class="btn-control" onclick="window.nutrivision.loadAIChatMessages()">
+                                    <i class="fas fa-sync"></i> Refresh Logs
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-stats-row">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fas fa-comments"></i></div>
+                                <div class="feature-title">Total Interactions</div>
+                                <div class="feature-value" id="ai-total-messages">0</div>
+                                <div class="feature-progress"><div class="feature-progress-bar" style="width: 0%"></div></div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"><i class="fas fa-user-friends"></i></div>
+                                <div class="feature-title">Active Chatters</div>
+                                <div class="feature-value" id="ai-active-users">0</div>
+                            </div>
+                        </div>
+
+                        <div class="empty-state-card" id="ai-chat-empty">
+                            <div class="empty-icon"><i class="fas fa-comment-slash"></i></div>
+                            <h4>No AI Conversations Yet</h4>
+                            <p>When users start chatting with the AI Nutritionist in the app, their message history will appear here for monitoring and support.</p>
+                        </div>
+
+                        <div class="table-container" id="ai-chat-table-container" style="display: none;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Last Message</th>
+                                        <th>Sentiment</th>
+                                        <th>Timestamp</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ai-chat-table-body"></tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Name</th>
-                                    <th>Joined</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="users-table-body">
-                            </tbody>
-                        </table>
+                </div>
+
+                <!-- Challenges Tab -->
+                <div id="challenges-tab" class="tab-content">
+                    <div class="feature-tab-container">
+                        <div class="content-header">
+                            <h3><i class="fas fa-trophy"></i> Manage Challenges</h3>
+                            <button class="btn-primary" onclick="window.nutrivision.showCreateChallengeModal()">
+                                <i class="fas fa-plus"></i> Create New Challenge
+                            </button>
+                        </div>
+
+                        <div class="feature-stats-row">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fas fa-flag"></i></div>
+                                <div class="feature-title">Active Challenges</div>
+                                <div class="feature-value" id="active-challenges-count">0</div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon-box" style="background: #FF9800;"><i class="fas fa-users"></i></div>
+                                <div class="feature-title">Participants</div>
+                                <div class="feature-value" id="total-participants">0</div>
+                            </div>
+                        </div>
+
+                        <div class="empty-state-card">
+                            <div class="empty-icon"><i class="fas fa-trophy"></i></div>
+                            <h4>Start Your First Challenge</h4>
+                            <p>Engage your users by creating group challenges and tournaments. Click "Create New Challenge" to get started.</p>
+                            <button class="btn-primary" style="margin-top: 20px;" onclick="window.nutrivision.showCreateChallengeModal()">
+                                Setup First Challenge
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -448,7 +504,6 @@
                     </div>
                 </div>
 
-                
                 <!-- Performance Tab -->
                 <div id="performance-tab" class="tab-content">
                     <div class="content-header">
